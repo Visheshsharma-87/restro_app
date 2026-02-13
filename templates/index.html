@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="neon">MENU</h1>
+<div class="menu">
+{% for f in foods %}
+<div class="card">
+<img src="{{ f[4] }}">
+<h3>{{ f[1] }}</h3>
+<p>{{ f[2] }}</p>
+<p class="price">₹{{ f[3] }}</p>
+<a href="/cart/{{ f[0] }}">ORDER</a>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

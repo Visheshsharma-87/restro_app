@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="glass">
+<h2>{{ item[1] }} – ₹{{ item[3] }}</h2>
+<form method="POST" action="/place_order">
+<input type="hidden" name="food" value="{{ item[1] }}">
+<input type="hidden" name="price" value="{{ item[3] }}">
+<input name="name" placeholder="Name" required>
+
+<select name="order_type" onchange="t(this.value)">
+<option value="">Order Type</option>
+<option>Home Delivery</option>
+<option>Table Order</option>
+</select>
+
+<div id="home"><textarea name="address" placeholder="Address"></textarea></div>
+<div id="table"><input name="table_no" placeholder="Table No"></div>
+
+<button>PLACE ORDER</button>
+</form>
+</div>
+
+<script>
+function t(v){
+home.style.display=v=="Home Delivery"?"block":"none";
+table.style.display=v=="Table Order"?"block":"none";
+}
+</script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>ADMIN PANEL</h2>
+
+<h3>Add Food Item</h3>
+<form method="POST">
+<input name="name" placeholder="Food Name" required>
+<input name="category" placeholder="Category" required>
+<input name="price" placeholder="Price" required>
+<input name="image" placeholder="Image URL" required>
+<button>Add</button>
+</form>
+
+<h3>Orders</h3>
+<table>
+<tr>
+<th>Order ID</th><th>Name</th><th>Food</th><th>Type</th><th>Table</th><th>Address</th><th>Time</th>
+</tr>
+{% for o in orders %}
+<tr>
+<td>{{ o[1] }}</td>
+<td>{{ o[2] }}</td>
+<td>{{ o[6] }}</td>
+<td>{{ o[5] }}</td>
+<td>{{ o[4] }}</td>
+<td>{{ o[3] }}</td>
+<td>{{ o[8] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>Customer Feedback</h3>
+<table>
+<tr><th>Name</th><th>Message</th><th>Time</th></tr>
+{% for f in feedbacks %}
+<tr>
+<td>{{ f[1] }}</td>
+<td>{{ f[2] }}</td>
+<td>{{ f[3] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/logout">Logout</a>
+
+{% endblock %}
